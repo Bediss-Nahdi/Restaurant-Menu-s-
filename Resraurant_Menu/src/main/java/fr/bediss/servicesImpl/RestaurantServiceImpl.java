@@ -1,9 +1,11 @@
-package fr.bediss.services;
+package fr.bediss.servicesImpl;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +13,10 @@ import org.springframework.stereotype.Service;
 import fr.bediss.entities.Restaurant;
 import fr.bediss.exceptions.RessourceNotFoundException;
 import fr.bediss.repositories.RestaurantRepository;
+import fr.bediss.services.RestaurantService;
 
 @Service
+@Transactional
 public class RestaurantServiceImpl implements RestaurantService {
 
 	@Autowired
@@ -23,7 +27,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public List<Restaurant> findAll() {
 		List<Restaurant> liste = new ArrayList<Restaurant>();
 		restoRepository.findAll().forEach(liste::add);
-		;
+		
 		return liste;
 
 	}

@@ -25,4 +25,6 @@ public interface RestaurantService {
 //6// Supprimer un Restaurant
 	public void deleteById(String identifiant);
 
+	public void deleteById(String idRestaurant, String idMenu);
+
 }
